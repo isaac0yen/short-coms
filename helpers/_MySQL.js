@@ -396,8 +396,8 @@ const _MySQL = {
     },
 
     async executeDirect(query, values) {
-        const query = await _DB.execute(query, values);
-        return query[0][0];
+        const queryVal = await _DB.execute(query, values);
+        return queryVal[0][0];
     },
 };
 

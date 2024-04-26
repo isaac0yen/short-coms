@@ -26,11 +26,15 @@ const typeDefs = `#graphql
     getUser(id:Int):JSON
     getAllUsers(page:Int):JSON
 
-    getSession:(id:Int!):JSON
+    getSession(id:Int!):JSON
     getAllSessions(page:Int!):JSON
   }
 
   type Mutation{
+
+    sendCode(email: String!): JSON
+    loginUser(email: String!, code: Int): JSON
+
     registerUser(user:User):JSON
     updateUser(user:JSON, id:Int!):JSON
     deleteUser(id:Int!):JSON
@@ -38,6 +42,7 @@ const typeDefs = `#graphql
     createSession(session:Session):JSON
     updateSession(session:JSON, id:Int!):JSON
     deleteSession(id:Int!):JSON
+    addUserToSession(session_id:Int!):JSON
 
     sendMessage(message:message):JSON
   }
